@@ -91,7 +91,13 @@ const actors = [
   // an object and loops through the values. Store the
   // name of each founder in a new array that is returned
   // by the function when the loop is complete.
-  
+  function storeFounders(foundersObj) {
+    let founders = [];
+    for (let founder of Object.values(foundersObj)) {
+      founders.push(founder);
+    }
+    return founders;
+  }
   
   // 7) Create a function named goToSecondClass that accepts
   // a destructured object as a parameter. The parameter
@@ -108,12 +114,25 @@ const actors = [
     thirdHour: "Biology"
   };
   ////////// Don't change the above object
-  
+  function goToSecondClass({
+    firstHour,
+    secondHour,
+    thirdHour
+    }) {
+      return `Time to go to ${secondHour} class!`;
+    }
+
   // 8a) Create a generic object named pie.
   // Give the pie object a property named "slices"
   // that has a value of 8. Give the pie object
   // a method named "taste". Have the taste method
   // return "Wow!".
+  const pie = {
+    slices: 8,
+    taste() {
+      return "Wow!";
+    }
+  }
   /////
   // 8b) Create a new object named "blueBerryPie"
   // that uses the pie object as a constructor
@@ -124,4 +143,6 @@ const actors = [
   // this new object to return "Delicious!"
   ////////////////
   // Hint: Inheritance is in this week's video.
-  
+  const blueBerryPie = Object.create(pie);
+  blueBerryPie.taste = function() {return "Delicious"};
+  blueBerryPie.flavor = "blueberry";
